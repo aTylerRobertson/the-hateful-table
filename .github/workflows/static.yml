@@ -36,10 +36,8 @@ jobs:
         run: |
           {
             for i in $FILELIST; do
-               echo 'FILECONTENTS<<EOF'
                cat "$i"
                echo " --- "
-               echo EOF
             done  
           } > html/index.html
       - name: Commit HTML to repo
