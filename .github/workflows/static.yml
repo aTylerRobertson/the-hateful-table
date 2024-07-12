@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   deploy:
-    if: github.actor !== 'github-actions'
+    if: ${{ ! endsWith(github.actor, '[bot]') }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
