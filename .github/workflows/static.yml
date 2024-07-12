@@ -36,7 +36,7 @@ jobs:
         run: |
           echo "" > html/index.html
           for i in $FILELIST; do
-             tr '\n' '<br />' < $i >> html/index.html
+             tr '\n' '\<br \/\>' < $i >> html/index.html
           done 
       - name: Commit HTML to repo
         run: |
