@@ -34,12 +34,10 @@ jobs:
           } >> "$GITHUB_ENV"
       - name: Pages to HTML
         run: |
-          IFS=""
-          {
-            for i in $FILELIST; do
-               printf "$(cat "$i")\n --- \n"
-            done  
-          } > html/index.html
+          echo "" > html/index.html
+          for i in $FILELIST; do
+             tr '\n' '<br />' < $i >> html/index.html
+          done 
       - name: Commit HTML to repo
         run: |
           git config --local user.email "action@github.com"
