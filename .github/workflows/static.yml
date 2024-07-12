@@ -37,8 +37,11 @@ jobs:
           echo "" > html/index.html
           IFS=''
           for i in $FILELIST; do
-             echo "$(sed 's/$/<br\/>/' $i)" >> html/index.html
-             echo "<hr/>" >> html/index.html
+              content=$(cat "$i")
+              content=$(sed 's/# (.*)$/<h1>\1<\/h1>/' $content)
+              content=$(sed 's/$/<br\/>/' $content)
+              echo "$content" >> html/index.html 
+              echo "<hr/>" >> html/index.html
           done 
       - name: Commit HTML to repo
         run: |
