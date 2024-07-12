@@ -35,6 +35,7 @@ jobs:
       - name: Pages to HTML
         run: |
           echo "" > html/index.html
+          IFS=''
           for i in $FILELIST; do
              tr '\n' '\<br \/\>' < $i >> html/index.html
           done 
