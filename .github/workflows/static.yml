@@ -39,7 +39,7 @@ jobs:
           for i in $FILELIST; do
               touch html/temp.html
               echo "" > html/temp.html
-              sed 's/\# (.*)$/<h1>\1<\/h1>/' < html/temp.html > html/temp.html
+              sed 's/\# \(.*\)$/<h1>\1<\/h1>/' < html/temp.html > html/temp.html
               sed 's/$/<br\/>/' < html/temp.html > html/temp.html
               echo "$(cat "html/temp.html")" >> html/index.html 
               echo "<hr/>" >> html/index.html
