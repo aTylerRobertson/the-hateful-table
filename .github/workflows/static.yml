@@ -36,8 +36,7 @@ jobs:
         run: |
           {
             for i in $FILELIST; do
-               cat "$i"
-               echo " --- "
+               printf "$(cat "$i")" "\n --- \n"
             done  
           } > html/index.html
       - name: Commit HTML to repo
