@@ -36,7 +36,7 @@ jobs:
               # Heading 3
               echo "$(sed -r 's/^\#\#\# (.*)$/\<h3\>\1\<\/h3\>/' html/temp.html)" > html/temp.html
               # Heading 2
-              echo "$(sed -r 's/^\#\# (.*)$/\<h2\>\1\<\/h2\>/' html/temp.html)" > html/temp.html
+              echo "$(sed -r 's/^\#\# (.*)$/\<h2\>\<a href=\"\#\1\"\>\1\<\/a\>\<\/h2\>/' html/temp.html)" > html/temp.html
               # Heading 1
               echo "$(sed -r 's/^\# (.*)$/\<h1\>\<a href=\"\#\1\"\>\1\<\/a\>\<\/h1\>/' html/temp.html)" > html/temp.html
               # Bold text
