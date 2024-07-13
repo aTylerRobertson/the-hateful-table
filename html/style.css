@@ -20,3 +20,8 @@ h1 {
 hr {
   margin: 1rem;
 }
+
+i {
+  font-style: normal;
+  background: #252525;
+}
