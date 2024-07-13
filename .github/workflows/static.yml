@@ -35,7 +35,6 @@ jobs:
       - name: Markdown files to HTML
         run: |
           cat html/header.html > html/index.html
-          IFS='\n'
           for i in $FILELIST; do
               IFS=''
               touch html/temp.html
