@@ -37,11 +37,24 @@ jobs:
           echo "" > html/index.html
           IFS=''
           for i in $FILELIST; do
-              echo "" > html/temp.html
-              sed 's/\# \(.*\)$/<h1>\1<\/h1>/' html/temp.html > html/temp.html
-              sed 's/$/<br\/>/' html/temp.html > html/temp.html
-              cat html/temp.html >> html/index.html 
-              echo "<hr/>" >> html/index.html
+              cat $i > html/temp.html
+              # Header 3
+              sed -r 's/^\#\#\# (.*)$/<h3>\1<\/h3>/' html/temp.html > html/temp.html
+              # Header 2
+              sed -r 's/^\#\# (.*)$/<h2>\1<\/h2>/' html/temp.html > html/temp.html
+              # Header 1
+              sed -r 's/^\# (.*)$/<h1>\1<\/h1>/' html/temp.html > html/temp.html
+              # Bold
+              sed -r 's/\*\*(.*)\*\*/<b>\1<\/b>/' html/temp.html > html/temp.html
+              # Italic
+              sed -r 's/\*(.*)\*/<i>\1<\/i>/' html/temp.html > html/temp.html
+              # Italic
+              sed -r 's/\_(.*)\_/<i>\1<\/i>/' html/temp.html > html/temp.html
+              # Links
+              sed -r 's/\[(.*)\]\((.*)\)/<a href=\"\2\">\1<\/a>/' html/temp.html > html/temp.html
+              # Line breaks
+              sed -r 's/$/<br\/>/' html/temp.html > html/temp.html
+              cat html/temp.html >> html/index.html
           done 
       - name: Commit HTML to repo
         run: |
