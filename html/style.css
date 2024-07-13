@@ -2,7 +2,7 @@ body {
   font-size: 140%;
   background: #F7F7F7;
   color: #373737;
-  margin: 2rem 1rem;
+  margin: 3rem 2rem;
   font-family: serif;
   line-height: 2.5rem;
 }
@@ -34,7 +34,7 @@ hr {
 }
 
 p {
-  margin: 1rem;
+  margin: 1rem 0;
 }
 
 i {
