@@ -1,3 +1,3 @@
 # The Hateful Table
  
-This is a test!
+Listen here, bucko. You're going to cook something today, whether you like it or not.
