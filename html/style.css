@@ -1,5 +1,5 @@
 body {
-  font-size: 140%;
+  font-size: 200%;
   background: #F7F7F7;
   color: #373737;
   margin: 0;
@@ -18,14 +18,9 @@ h1, h2, h3 {
   margin-top: 3rem;
 }
 
-h1 {
-  font-size: 4rem;
-  line-height: 4rem;
-}
-
 h1:first-of-type {
-  font-size: 5.5rem;
-  line-height: 5.5rem;
+  font-size: 3.5rem;
+  line-height: 3.5rem;
   margin-top: 0;
 }
 
