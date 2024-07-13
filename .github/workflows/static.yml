@@ -39,15 +39,22 @@ jobs:
           for i in $FILELIST; do
               touch html/temp.html
               cat $i > html/temp.html
-              sed -r 's/^\#\#\# (.*)$/\<h3\>\1\<\/h3\>/' html/temp.html > html/temp.html
-              sed -r 's/^\#\# (.*)$/\<h2\>\1\<\/h2\>/' html/temp.html > html/temp.html
-              sed -r 's/^\# (.*)$/\<h1\>\1\<\/h1\>/' html/temp.html > html/temp.html
-              sed -r 's/\*\*(.*)\*\*/\<b\>\1\<\/b\>/' html/temp.html > html/temp.html
-              sed -r 's/\*(.*)\*/\<i\>\1\<\/i\>/' html/temp.html > html/temp.html
-              sed -r 's/\_(.*)\_/\<i\>\1\<\/i\>/' html/temp.html > html/temp.html
-              sed -r 's/\[(.*)\]\((.*)\)/\<a href=\"\2\"\>\1\<\/a\>/' html/temp.html > html/temp.html
+              # Heading 3
+              echo "$(sed -r 's/^\#\#\# (.*)$/\<h3\>\1\<\/h3\>/' html/temp.html)" > html/temp.html
+              # Heading 2
+              echo "$(sed -r 's/^\#\# (.*)$/\<h2\>\1\<\/h2\>/' html/temp.html)" > html/temp.html
+              # Heading 1
+              echo "$(sed -r 's/^\# (.*)$/\<h1\>\1\<\/h1\>/' html/temp.html)" > html/temp.html
+              # Bold text
+              echo "$(sed -r 's/\*\*(.*)\*\*/\<b\>\1\<\/b\>/' html/temp.html)" > html/temp.html
+              # Italic text
+              echo "$(sed -r 's/\*(.*)\*/\<i\>\1\<\/i\>/' html/temp.html)" > html/temp.html
+              # Italic text
+              echo "$(sed -r 's/\_(.*)\_/\<i\>\1\<\/i\>/' html/temp.html)" > html/temp.html
+              # Links
+              echo "$(sed -r 's/\[(.*)\]\((.*)\)/\<a href=\"\2\"\>\1\<\/a\>/' html/temp.html)" > html/temp.html
               # Line breaks
-              sed -r 's/$/<br\/>/' html/temp.html > html/temp.html
+              echo "$(sed -r 's/$/<br\/>/' html/temp.html)" > html/temp.html
               cat html/temp.html >> html/index.html
           done
           cat html/footer.html >> html/index.html
