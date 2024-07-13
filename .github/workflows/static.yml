@@ -47,8 +47,8 @@ jobs:
               echo "$(sed -r 's/\_(.*)\_/\<i\>\1\<\/i\>/' html/temp.html)" > html/temp.html
               # Links
               echo "$(sed -r 's/\[(.*)\]\((.*)\)/\<a href=\"\2\"\>\1\<\/a\>/' html/temp.html)" > html/temp.html
-              # Line breaks
-              echo "$(sed -r 's/$/<br\/>/' html/temp.html)" > html/temp.html
+              # Paragraphs
+              echo "$(sed -r 's/^([^\<h].*)$/\<p\>\1\<\/p\>/' html/temp.html)" > html/temp.html
               cat html/temp.html >> html/index.html
           done
           cat html/footer.html >> html/index.html
