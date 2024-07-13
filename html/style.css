@@ -28,6 +28,10 @@ hr {
   margin: 2rem;
 }
 
+p {
+  margin: 1rem;
+}
+
 i {
   font-style: normal;
   background: #373737;
