@@ -59,7 +59,7 @@ jobs:
           git config --local user.name "github-actions"
           git add html/index.html
           git commit -m "Built HTML file"
-          git push
+          git push --force
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
