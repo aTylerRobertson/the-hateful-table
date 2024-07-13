@@ -34,9 +34,10 @@ jobs:
           } >> "$GITHUB_ENV"
       - name: Markdown files to HTML
         run: |
-          echo "" > html/index.html
+          cat html/header.html > html/index.html
           IFS=''
           for i in $FILELIST; do
+              touch html/temp.html
               cat $i > html/temp.html
               # Header 3
               sed -r 's/^\#\#\# (.*)$/<h3>\1<\/h3>/' html/temp.html > html/temp.html
@@ -55,7 +56,9 @@ jobs:
               # Line breaks
               sed -r 's/$/<br\/>/' html/temp.html > html/temp.html
               cat html/temp.html >> html/index.html
-          done 
+          done
+          cat html/footer.html >> html/index.html
+          cat html/index.html
       - name: Commit HTML to repo
         run: |
           git config --local user.email "action@github.com"
